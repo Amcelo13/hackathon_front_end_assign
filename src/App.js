@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import {Container, CssBaseline} from "@mui/material";
 
+import Banner from "./components/Banner";
+import Nav from "./components/Nav";
+import TabBar from "./components/TabBar";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return(
+    <>
+      <CssBaseline/>
+
+      <Container sx={{ bgcolor: "white", height: "100vh"}} maxWidth="xl" style={{ width: "100vw", paddingLeft: 0, paddingRight: 0 }}>
+
+        {/* Image of company logo */}
+        <Nav/>
+
+        {/* Banner */}
+          <Banner/>
+
+        {/* Tab Bar */}
+          <TabBar />
+
+      </Container>
+    </>
   );
 }
 
