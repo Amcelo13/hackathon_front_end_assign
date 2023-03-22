@@ -1,7 +1,15 @@
 import React from 'react'
 import { Box, Container, CssBaseline, Typography ,Button, createTheme} from "@mui/material";
 import './bt.css'
+import { useNavigate } from 'react-router-dom';
+
+
 function Banner() {
+const navigate = useNavigate()
+
+function handleNavigate(){
+  navigate('add')
+}
   return (
     <header style= {{
         backgroundSize : "cover",
@@ -36,7 +44,7 @@ function Banner() {
           </Typography>
 
           {/* Upload button  */}
-        <button id="up_sub"> Upload Submission </button>
+        <button id="up_sub" onClick={handleNavigate}> Upload Submission </button>
       </header>
   )
 }

@@ -1,26 +1,20 @@
+import Home from "./components/Home";
+import Add from "./components/Add";
+import { BrowserRouter, Route , Routes} from "react-router-dom";
 import {Container, CssBaseline} from "@mui/material";
 
-import Banner from "./components/Banner";
-import Nav from "./components/Nav";
-import TabBar from "./components/TabBar";
 function App() {
   return(
-    <>
+    <BrowserRouter>
       <CssBaseline/>
+      <Routes>
+           <Route path='/' index element= {<Home/>}/>
+           <Route path='add' index element= {<Add/>}/>
+           {/* <Route path='' index element= {<Add/>}/> */}
 
-      <Container sx={{ bgcolor: "white", height: "100vh"}} maxWidth="xl" style={{ width: "100vw", paddingLeft: 0, paddingRight: 0 }}>
+     </Routes>
 
-        {/* Image of company logo */}
-        <Nav/>
-
-        {/* Banner */}
-          <Banner/>
-
-        {/* Tab Bar */}
-          <TabBar />
-
-      </Container>
-    </>
+    </BrowserRouter>
   );
 }
 
