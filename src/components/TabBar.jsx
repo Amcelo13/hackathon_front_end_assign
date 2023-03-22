@@ -67,7 +67,7 @@ function TabBar() {
             label="Age"
             onChange={handleSort}
           >
-            <MenuItem value={10} selected>Newest First</MenuItem>
+            <MenuItem value={10} defaultValue>Newest First</MenuItem>
             <MenuItem value={20}>Oldest First</MenuItem>
           </Select>
         </FormControl>
