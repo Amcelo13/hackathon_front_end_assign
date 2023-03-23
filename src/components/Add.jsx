@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
 import { Typography } from '@mui/joy'
 import { Container, TextField } from '@mui/material'
-import { Dayjs } from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+
 import Nav from './Nav';
 
 function Add() {
+    const currentDate = new Date();
+    const dateStamp = currentDate.toISOString();
+
     const [startdatevalue, setstartdatevalue] = useState(null);
     const [enddatevalue, setenddatevalue] = useState(null);
     const [title, setTitle] = useState("");
@@ -17,6 +18,16 @@ function Add() {
     const [summary, setSummary] = useState("");
     const [git, setGit] = useState("");
     const [other, setOther] = useState("");
+    const [selectedImage, setSelectedImage] = useState('');
+
+    const handleImageSelect = (event) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          setSelectedImage(reader.result);
+        };
+        reader.readAsDataURL(event.target.files[0]);
+      };
+    
     const stylo = {
         fontSize: '20px',
         marginLeft: '22rem',
@@ -28,8 +39,8 @@ function Add() {
         padding: '10px 10px',
         outline: 'none',
         outlineColor: 'white',
-        marginTop:'0.3rem',
-        paddingTop:'7px',
+        marginTop: '0.3rem',
+        paddingTop: '7px',
         borderRadius: '4px',
         paddingBottom: '13px',
         border: '0.5px lightgray solid',
@@ -46,16 +57,22 @@ function Add() {
         border: '0.5px lightgray solid',
         fontFamily: 'Poppins'
     }
-    const handleSubmit =(event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        localStorage.setItem('title',title)
-        localStorage.setItem('description',description)
-        localStorage.setItem('summary',summary)
-        localStorage.setItem('git',git)
-        localStorage.setItem('other',other)
-        localStorage.setItem('startdatevalue',startdatevalue)
-        localStorage.setItem('enddatevalue',enddatevalue)
-        // localStorage.setItem('image',image)
+        const myData = {
+            title: title,
+            description: description,
+            summary: summary,
+            git: git,
+            other: other,
+            startdatevalue: startdatevalue,
+            enddatevalue: enddatevalue,
+            selectedImageUrl: selectedImage,
+            formSubmissionDate: dateStamp
+          };
+          
+          localStorage.setItem('myDataKey', JSON.stringify(myData));
+
 
     }
     return (
@@ -75,24 +92,25 @@ function Add() {
                                 setTitle(e.target.value);
                             }} />  <br /> <br />
 
-                        Summary <br /><input style={stylo1} type="text" name="" id="" placeholder='A short summary of your submission (this will be visible with your submission' 
-                         value={summary}
-                         onChange={(e) => {
-                             setSummary(e.target.value);
-                         }}/>   <br /> <br />
+                        Summary <br /><input style={stylo1} type="text" name="" id="" placeholder='A short summary of your submission (this will be visible with your submission'
+                            value={summary}
+                            onChange={(e) => {
+                                setSummary(e.target.value);
+                            }} />   <br /> <br />
 
-                        Description <br /><textarea style={stylo1} name="" id="" placeholder='Write a long description of your project. You can describe your idea and approach here.' 
-                         value={description}
-                         onChange={(e) => {
-                             setDescription(e.target.value);
-                         }}/>  <br /> <br />
+                        Description <br /><textarea style={stylo1} name="" id="" placeholder='Write a long description of your project. You can describe your idea and approach here.'
+                            value={description}
+                            onChange={(e) => {
+                                setDescription(e.target.value);
+                            }} />  <br /> <br />
 
                         Cover Image <br />
                         <span style={{ color: 'gray', fontSize: '12px' }}>Minimum resolution 360px x 360px</span> <br />
-                        <Button variant="contained" component="label" sx={{ width: '600px', backgroundColor: 'silver' }}>
-                            Click to upload image here
-                            <input hidden accept="image/*" multiple type="file" />
-                        </Button>
+                        <div>
+                            <input style={{}} type="file" id="img" name="img" accept="image/*" onChange={handleImageSelect}></input>
+                            <div>
+                            <img src={selectedImage} style={{border:'0.1px solid white', backgroundImage: `url("./assets/imgt.png")`, backgroundSize:'cover'}} width="600px" height="100px"  /></div>
+                            </div>
 
 
                         <div style={{ paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', maxWidth: '720px' }}>
@@ -125,23 +143,23 @@ function Add() {
                             <br /> <br />
 
                         </div> <br />
-                        Github Repository <br /><input style={stylo1} type="text" name="" id="" placeholder='Enter your submissions public GitHub repository link' 
-                         value={git}
-                         onChange={(e) => {
-                             setGit(e.target.value);
-                         }}/>   <br /> <br />
+                        Github Repository <br /><input style={stylo1} type="text" name="" id="" placeholder='Enter your submissions public GitHub repository link'
+                            value={git}
+                            onChange={(e) => {
+                                setGit(e.target.value);
+                            }} />   <br /> <br />
                         Other Links <br /><input style={stylo1} type="text" name="" id="" placeholder='You can upload a video demo or URL of you demo app here.'
-                         value={other}
-                         onChange={(e) => {
-                             setOther(e.target.value);
-                         }}/>   <br /> <br />
+                            value={other}
+                            onChange={(e) => {
+                                setOther(e.target.value);
+                            }} />   <br /> <br />
 
                     </div>
 
                 </form>
                 <div style={{ marginLeft: '17rem' }}>
                     <button id='up_sub' style={{ marginLeft: '5remp' }}
-                    onClick={handleSubmit}>Upload Submission</button>
+                        onClick={handleSubmit}>Upload Submission</button>
                 </div>
 
             </Container>
