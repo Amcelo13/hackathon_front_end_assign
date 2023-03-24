@@ -33,11 +33,11 @@ function handleNavigate(){
             width: '200px',
           }}
         />
-        <Typography sx={{pt:'7rem', fontSize: 40,height:'10px' ,pl:'5rem',
+        <Typography sx={{pt:'7rem', fontSize: 40,height:'10px' ,pl:'100px',
           color:'white', fontWeight:'bold', fontFamily:'Poppins'}} 
           variant="h1" >Hackathon Submissions</Typography>
         <Typography sx={{pt:'4rem', fontSize: 15, 
-          color:'white', pl:'5rem'}} gutterBottom>
+          color:'white', pl:'100px'}} gutterBottom>
           lorem30 aew wqe wew weqwewqe
           qeweqw eqwewq we er wr<br/> wqe qw ew q wqe wq ew eq wewer w w e   wqe e w w e w e qeweqw <br/>
           wer  we we w  qwe  wew e we r f e r t rt  rt er w r e  
