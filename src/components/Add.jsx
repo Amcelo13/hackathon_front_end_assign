@@ -148,9 +148,10 @@ function Add({toEdit}) {
 
               
                   <div style={{marginLeft:'9rem'}}>
-                    <Button id="up_sub"  style={{height:'40px', width:'180px'}}
+                    <Button id="up_sub"  style={{height:'40px', width:'200px'}}
                     onClick={makeUpload}>Upload Submission</Button>
                 </div>
+                       
 
                 </Stack>
 
