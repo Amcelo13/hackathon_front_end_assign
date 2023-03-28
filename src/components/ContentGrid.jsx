@@ -7,7 +7,7 @@ import getSubmissions from './utility/getSubmissions';
 
 export default function ContentGrid({rankType, onlyFavs, search}){
   // Returning a grid that calls a function to show the data
-  return <Grid mt={3} container spacing={5}>
+  return <Grid mt={-3} container spacing={5}>
     {renderItems()}
   </Grid>
 
