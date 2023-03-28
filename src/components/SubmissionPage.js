@@ -53,7 +53,8 @@ export default function SubmissionPage() {
               onClick={makeLike}
               startIcon={item.liked ? <StarIcon /> : <StarBorderIcon />}
             ></Button>
-            <Typography>{parseDate(item.uploadTime)}</Typography>
+          <Typography sx={{backgroundColor:'#255973', p:'5px' , borderRadius:'1rem',fontSize:'15'}}><CalendarTodayIcon sx={{fontSize:'0.9rem', pt:'0.1rem'}}></CalendarTodayIcon>  {parseDate(item.uploadTime)}</Typography>
+
           </Stack>
         </Stack>
 
