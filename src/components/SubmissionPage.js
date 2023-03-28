@@ -14,7 +14,7 @@ const imageStyling = {
   objectFit: "cover",
   borderRadius: "25px",
 };
-
+//here the function starts
 export default function SubmissionPage() {
   let navigate = useNavigate();
   let { id } = useParams();
