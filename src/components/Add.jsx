@@ -147,10 +147,10 @@ function Add({toEdit}) {
                
 
               
-                <Stack mt={"100px"} justifyContent={"center"}  alignItems={"center"}>
-                    <Button id="up_sub"
+                  <div style={{marginLeft:'9rem'}}>
+                    <Button id="up_sub"  style={{height:'40px', width:'180px'}}
                     onClick={makeUpload}>Upload Submission</Button>
-                </Stack>
+                </div>
 
                 </Stack>
 
