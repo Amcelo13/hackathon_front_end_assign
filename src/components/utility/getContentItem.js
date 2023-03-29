@@ -34,7 +34,8 @@ export default function getContentItem({ item, key }) {
 
           <Typography sx= {{fontSize:'14px',height:'130px'}}>{item.summary}</Typography>
           <div style={{marginLeft:'8rem'}}>
-          <Typography sx={{color:'gray', fontSize:'13px',marginBottom:'0.3rem',paddingTop:'0.7rem'}}>{getAge(item.uploadTime)}</Typography>
+          <Typography sx={{color:'gray', fontSize:'13px',marginBottom:'0.9rem
+          '}}>{getAge(item.uploadTime)}</Typography>
           </div>
         </Stack>
       </Link>
