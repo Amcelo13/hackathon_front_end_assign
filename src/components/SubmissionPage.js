@@ -7,7 +7,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LaunchIcon from "@mui/icons-material/Launch";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
-
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 const imageStyling = {
   height: "130px",
   width: "130px",
@@ -53,7 +53,8 @@ export default function SubmissionPage() {
               onClick={makeLike}
               startIcon={item.liked ? <StarIcon /> : <StarBorderIcon />}
             ></Button>
-            <Typography>{parseDate(item.uploadTime)}</Typography>
+            
+            <Typography sx={{backgroundColor:'#255973', p:'5px' , borderRadius:'1rem',fontSize:'15'}}><CalendarTodayIcon sx={{fontSize:'0.9rem', pt:'0.1rem'}}></CalendarTodayIcon>  {parseDate(item.uploadTime)}</Typography>
           </Stack>
         </Stack>
 
@@ -157,7 +158,8 @@ export default function SubmissionPage() {
 
   function parseDate(str) {
     let date = new Date(str);
-    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    return `${date.getDate()} ${months[date.getMonth()]}`;
   }
 
   function makeLike() {

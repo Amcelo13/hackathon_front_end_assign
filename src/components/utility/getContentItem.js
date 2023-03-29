@@ -19,10 +19,11 @@ export default function getContentItem({ item, key }) {
         <Stack
           spacing={3}
           borderRadius={5}
-          height={"300px"}
+          height={"280px"}
           bgcolor="#fff"
           p={3}
-          boxShadow={"20px 20px 50px #cbcbcb, -30px -30px 60px #ffffff"}>
+          boxShadow={"20px 20px 50px #cbcbcb, -20px -20px 50px #ffffff"
+          }>
 
           <Stack direction={"row"} spacing={2} alignItems="center" >
             <img style={imageStyling} src={item.image.url} />
@@ -30,7 +31,7 @@ export default function getContentItem({ item, key }) {
           </Stack>
 
           <Typography>{item.summary}</Typography>
-          <div style={{marginLeft:'7rem'}}>
+          <div style={{marginLeft:'8.5rem'}}>
           <Typography sx={{color:'gray', fontSize:'14px'}}>{getAge(item.uploadTime)}</Typography>
           </div>
         </Stack>

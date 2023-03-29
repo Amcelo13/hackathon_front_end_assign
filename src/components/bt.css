@@ -1,20 +1,20 @@
 #up_sub {
-    width: 9em;
-    height: 3em;
-    border-radius: 5em;
-    font-size: 15px;
+    width: 2em;
+    height:3em;
+    border-radius:0.5em;
+    font-size: 14px;
     font-family:'Poppins';
     border: none;
     position: relative;
     overflow: hidden;
     z-index: 1;
     cursor: pointer;
-    background-color: #0fd850 ;
+    background-color: #44924C ;
     color: white;
-    width: 12rem;
+    width: 10rem;
     margin-left: 100px;
     margin-top: 1rem;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 2.8rem;
    }
    
@@ -22,11 +22,11 @@
     content: '';
     width: 0;
     height: 3em;
-    border-radius: 10em;
+    border-radius: 0.5em;
     position: absolute;
     top: 0;
     left: 0;
-    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    background-image: linear-gradient(to right, #44924C 0%, #f9f047 100%);
     transition: .5s ease;
     display: block;
     z-index: -1;
