@@ -4,7 +4,7 @@ import getFavs from './utility/getFavs';
 import getSearch from './utility/getSearch';
 import rankItems from './utility/rankItems';
 import getSubmissions from './utility/getSubmissions';
-
+//import
 export default function ContentGrid({rankType, onlyFavs, search}){
   // Returning a grid that calls a function to show the data
   return <Grid mt={-3} container spacing={5}>
