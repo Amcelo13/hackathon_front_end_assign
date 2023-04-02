@@ -27,10 +27,10 @@ function handleNavigate(){
         alt="Commented Image"
         style={{
           position: 'absolute', 
-          top: 60,
+          top: 35,
           right:120,
           zIndex: 1,
-          width: '110px',
+          width: '135px',
           // marginBottom:'30rem'
         }}
       />
