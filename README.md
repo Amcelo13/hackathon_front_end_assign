@@ -1,70 +1,61 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Hackathon Submission APP
 
-## Available Scripts
+This is a simple web application created for an Edtech company that allows learners to submit their hackathon solutions and view the list of submissions. The objective is to create a submissions feature where learners can submit their hackathon solutions. The application assumes that the hackathon feature is already built and the learners are provided with a problem statement that they can solve and make a submission.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Application Overview
+The application provides the following features:
 
-### `npm test`
+Learners can create, edit, and delete their submissions.  <br/>
+Every submission form should have the following fields:
+Title   <br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Summary 
 
-### `npm run build`
+Description
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Cover Image
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Hackathon Name
 
-### `npm run eject`
+Hackathon Start Date
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Hackathon End Date
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Github Repository Link
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Other links (optional)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Learners can see the list of submissions.
+Learners can search the submission using title.
+Learners can sort the submissions based on hackathon start date (oldest, newest).
+There are 2 tabs:
+All submissions
+Favourite submissions
+When clicked on a submission, it takes them to a page where learners can see all the data related to the submission.
+On this page, learners can edit, delete the submission, and by clicking on the star icon, they can make that submission as their favorite.
+All the favorite submissions are visible in the favorite tab.
 
-## Learn More
+# Local storage 
+Localstoarge is used as a database to store the submissions data.
+## Technologies Used 
+Technologies Used
+The following technologies were used to develop this application:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+HTML
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+CSS
 
-### Code Splitting
+JavaScript
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+React JS
 
-### Analyzing the Bundle Size
+Material UI
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Conclusion
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This application provides a simple solution for learners to submit their hackathon solutions and view the list of submissions. With the help of this application, learners can easily submit their solutions and track their progress.
