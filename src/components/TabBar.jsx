@@ -98,7 +98,7 @@ function TabBar() {
       <TabPanel1 value={tab} index={0} sx={{marginTop :'-1rem'}}>
         <ContentGrid rankType={rankType} search={search} onlyFavs={false} />
       </TabPanel1>
-      <TabPanel1 value={tab} index={1}>
+      <TabPanel1 value={tab} index={1} sx={{marginTop :'-1rem'}}>
         <ContentGrid rankType={rankType} search={search} onlyFavs={true} />
       </TabPanel1>
 

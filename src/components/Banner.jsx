@@ -19,7 +19,7 @@ function handleNavigate(){
       position:'relative',
       width:'100%',
       backgroundPositionX: -200,
-      marginBottom:'1rem'
+      marginBottom:'0.9rem'
     }}>
       {/* Bulb Image */}
       <img
@@ -27,15 +27,16 @@ function handleNavigate(){
         alt="Commented Image"
         style={{
           position: 'absolute', 
-          top: 35,
+          top: 60,
           right:120,
           zIndex: 1,
           width: '110px',
           // marginBottom:'30rem'
         }}
       />
-      <Typography sx={{pt:'3rem', fontSize: 28,height:'10px' ,pl:'100px',
-        color:'white', fontWeight:'bold', fontFamily:'Poppins',marginBottom:'-0.1rem'}} 
+
+      <Typography sx={{pt:'4rem', fontSize: 28,height:'10px' ,pl:'100px',
+        color:'white', fontWeight:'bold', fontFamily:'Poppins',marginBottom:'1rem'}} 
         variant="h1" >Hackathon Submissions</Typography>
       <Typography sx={{pt:'3rem', fontSize: 12,fontFamily:'Poppins',
         color:'white', pl:'100px',lineHeight:'1rem',fontWeight:'lighter'}} gutterBottom> 

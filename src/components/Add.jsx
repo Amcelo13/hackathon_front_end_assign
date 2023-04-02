@@ -125,7 +125,7 @@
                             <TextField id="outlined-basic" label="You can upload a video demo or URL of you demo app here" variant="outlined" value={other} onChange={(e) => {setOther(e.target.value);}} />
                         </Stack>
                         <div style={{marginLeft:'-100px'}}>
-                    <Button id="up_sub"  style={{height:'40px', width:'200px'}}
+                    <Button id="up_sub"  style={{height:'40px', width:'190px'}}
                     onClick={makeUpload}>Upload Submission</Button>
                 </div>
                        

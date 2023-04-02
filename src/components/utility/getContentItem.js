@@ -3,10 +3,11 @@ import {  Link } from "react-router-dom";
 import getAge from "./getAge";
 
 const imageStyling = {
-  height: "130px",
-  width: "130px",
+  height: "120px",
+  width: "120px",
   objectFit: "cover",
   borderRadius: "25px",
+  
 };
 
 export default function getContentItem({ item, key }) {
@@ -19,20 +20,21 @@ export default function getContentItem({ item, key }) {
         <Stack
           spacing={3}
           borderRadius={5}
-          height={"280px"}
+          height={"300px"}
           bgcolor="#fff"
           p={3}
           boxShadow={"20px 20px 50px #cbcbcb, -20px -20px 50px #ffffff"
-          }>
+          }
+          >
 
           <Stack direction={"row"} spacing={2} alignItems="center" >
             <img style={imageStyling} src={item.image.url} />
             <Typography textTransform={"capitalize"} variant="h5" sx={{fontWeight:'700',fontFamily:'Poppins' }}>{item.title}</Typography>
           </Stack>
 
-          <Typography>{item.summary}</Typography>
-          <div style={{marginLeft:'8.5rem'}}>
-          <Typography sx={{color:'gray', fontSize:'14px'}}>{getAge(item.uploadTime)}</Typography>
+          <Typography sx= {{fontSize:'14px',height:'130px'}}>{item.summary}</Typography>
+          <div style={{marginLeft:'8rem'}}>
+          <Typography sx={{color:'gray', fontSize:'13px',marginBottom:'0.3rem',paddingTop:'0.7rem'}}>{getAge(item.uploadTime)}</Typography>
           </div>
         </Stack>
       </Link>

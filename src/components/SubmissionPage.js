@@ -1,13 +1,36 @@
-import {  Button, Stack, Typography } from "@mui/material";
-import {  Link, useNavigate } from "react-router-dom";
+import { Button, Stack, Typography } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
 import getSubmissions from "./utility/getSubmissions";
 import Nav from "./Nav";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LaunchIcon from "@mui/icons-material/Launch";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import { useState } from "react";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #fff",
+  boxShadow: 24,
+  borderRadius: "20px",
+  p: 4,
+  opacity: 1,
+};
+const style1 = {
+  color: "white",
+  backgroundColor: "red",
+  borderRadius: "0.5rem",
+};
 const imageStyling = {
   height: "130px",
   width: "130px",
@@ -16,6 +39,10 @@ const imageStyling = {
 };
 
 export default function SubmissionPage() {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   let navigate = useNavigate();
   let { id } = useParams();
   let item = getItem();
@@ -39,7 +66,7 @@ export default function SubmissionPage() {
         p="50px 100px"
         justifyContent={"space-between"}
       >
-        <Stack spacing={3} >
+        <Stack spacing={3}>
           <Stack direction="row" spacing={3} alignItems="center">
             <img style={imageStyling} src={item.image.url} />
             <Typography textTransform={"capitalize"} variant="h3">
@@ -53,31 +80,104 @@ export default function SubmissionPage() {
               onClick={makeLike}
               startIcon={item.liked ? <StarIcon /> : <StarBorderIcon />}
             ></Button>
-            
-            <Typography sx={{backgroundColor:'#255973', p:'5px' , borderRadius:'1rem',fontSize:'15'}}><CalendarTodayIcon sx={{fontSize:'0.9rem', pt:'0.1rem'}}></CalendarTodayIcon>  {parseDate(item.uploadTime)}</Typography>
+
+            <Typography
+              sx={{
+                backgroundColor: "#255973",
+                p: "5px",
+                paddingLeft:'10px',
+                paddingRight:'10px',
+                borderRadius: "1rem",
+                fontSize: "15",
+              }}
+            >
+              <CalendarTodayIcon
+                sx={{ fontSize: "0.9rem", pt: "0.1rem" }}
+              ></CalendarTodayIcon>{" "}
+              {parseDate(item.uploadTime)}
+            </Typography>
           </Stack>
         </Stack>
 
         <Stack spacing={5}>
-          <Link to={"/edit/" + id} style={{textDecoration: "none"}}>
-            <Button
-              sx={{ padding: "10px 25px", color: "#fff", borderRadius: "15px" }}
+          <Link to={"/edit/" + id} style={{ textDecoration: "none" }}>
+         <Button
+              sx={{
+                border: "1px solid white",
+                fontWeight: "600",
+                padding: "8px 30px",
+                color: "#fff",
+                borderRadius: "12px",
+              }}
               variant="outlined"
             >
-              Edit
+   <EditIcon style={{color:'white',fontSize:'16px'}}/>  &nbsp;
+
+ E <span style={{ textTransform: "lowercase" }}>dit</span>
             </Button>
           </Link>
 
           <Button
-            sx={{ padding: "10px 25px", color: "#fff", borderRadius: "15px" }}
+            sx={{
+              border: "1px solid white",
+              fontWeight: "600",
+              padding: "8px 23px",
+              color: "#fff",
+              borderRadius: "12px",
+            }}
             variant="outlined"
             onClick={() => {
-              makeDelete();
+              handleOpen();
             }}
           >
-            Delete
+              <DeleteIcon style={{color:'white',fontSize:'16px'}}/>  &nbsp;
+            D<span style={{ textTransform: "lowercase" }}>elete</span>
           </Button>
-          
+
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Typography
+                sx={{ fontWeight: "550", marginBottom: "0.8rem" }}
+                variant="h5"
+              >
+                {" "}
+                Delete model
+              </Typography>
+              <Typography sx={{ marginBottom: "1rem" }}>
+                {" "}
+                This action is irreversible. Are you sure you want to delete
+                this model?
+              </Typography>
+              <div style={{ display: "flex", flexDirection: "row-reverse" }}>
+                <Button
+                  onClick={() => makeDelete()}
+                  id="modal-modal-description"
+                  style={style1}
+                >
+                  D<span style={{ textTransform: "lowerCase" }}>elete</span>
+                </Button>
+                <Button
+                  onClick={handleClose}
+                  id="modal-modal-title"
+                  component="h2"
+                  style={{
+                    borderRadius: "0.5rem",
+                    color: "black",
+                    backgroundColor: "transparent",
+                    border: "1.1px solid black",
+                    marginRight: "10px",
+                  }}
+                >
+                  C<span style={{ textTransform: "lowerCase" }}>ancel</span>
+                </Button>
+              </div>
+            </Box>
+          </Modal>
         </Stack>
       </Stack>
 
@@ -87,7 +187,7 @@ export default function SubmissionPage() {
         direction={"row"}
         justifyContent="space-between"
       >
-        <Stack spacing={3} sx={{width:'750px'}} >
+        <Stack spacing={3} sx={{ width: "750px" }}>
           <Typography variant="h4">Description</Typography>
           <Typography>{item.description}</Typography>
         </Stack>
@@ -101,7 +201,7 @@ export default function SubmissionPage() {
             {parseDate(item.startdatevalue)} - {parseDate(item.enddatevalue)}
           </Typography>
 
-          <Link to={item.git} style={{textDecoration: "none"}}>
+          <Link to={item.git} style={{ textDecoration: "none" }}>
             <Button
               sx={{ padding: "10px 25px", color: "#111", borderRadius: "15px" }}
               variant="outlined"
@@ -111,7 +211,7 @@ export default function SubmissionPage() {
             </Button>
           </Link>
 
-          <Link to={item.other} style={{textDecoration: "none"}}>
+          <Link to={item.other} style={{ textDecoration: "none" }}>
             <Button
               startIcon={<LaunchIcon />}
               sx={{ padding: "10px 25px", color: "#111", borderRadius: "15px" }}
@@ -158,7 +258,20 @@ export default function SubmissionPage() {
 
   function parseDate(str) {
     let date = new Date(str);
-    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
     return `${date.getDate()} ${months[date.getMonth()]}`;
   }
 
