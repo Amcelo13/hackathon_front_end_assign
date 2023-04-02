@@ -1,4 +1,4 @@
-# Hackathon Submission APP
+# Hackathon Submission APP✅🖌️
 
 This is a simple web application created for an Edtech company that allows learners to submit their hackathon solutions and view the list of submissions. The objective is to create a submissions feature where learners can submit their hackathon solutions. The application assumes that the hackathon feature is already built and the learners are provided with a problem statement that they can solve and make a submission.
 
